@@ -1,0 +1,27 @@
+<div class="right">
+  <button type="button" class="btn btn-primary" [routerLink]="'/hr'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Back</button>
+
+</div>
+
+
+      <table class="table caption-top">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Interviewer Name</th>
+            <th scope="col">Skill Set</th>
+            <th scope="col">Availability</th>
+            <th scope="col">Blocked Datetime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of posts; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.username}}</td>
+            <td>{{item.skill}}</td>
+            <td>{{item.availability}}</td>
+            <td>{{item.blocked_datetime}}</td>
+          </tr>        
+        </tbody>
+      </table>
+    

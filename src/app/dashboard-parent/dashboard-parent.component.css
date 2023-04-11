@@ -1,0 +1,23 @@
+.box{
+    margin: 2% 30% 5% 5%;
+}
+.align{
+float: right;
+}
+.message{
+    margin-top: 10%;
+    color: darkslategray;
+    text-align: center;
+}
+
+.heading{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    color:darkslategray;
+    text-align: center;
+}
+
+.inline{
+    float: left;
+}
+

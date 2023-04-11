@@ -1,0 +1,42 @@
+<div class="message" *ngIf="dashboardLength===0">
+  <h3>No Candidate Present, Please click on Add Candidate to continue.</h3>
+
+</div>
+
+
+
+<div class="box" *ngIf="dashboardLength!==0">
+
+  <div class="heading">
+    <h3>Candidate List</h3>
+  
+  </div>
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" aria-current="true" *ngFor="let card of hrDashboard">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{card.interviewee_name}}  ({{card.email}})</h5>
+            <small>Current Round : {{card.latest_round_completed}}</small>
+          </div>
+          <p class="mb-1">Position : {{card.position_title}}</p>
+          <p class="mb-1">Experience (years) : {{card.total_experience}}</p>
+          <p class="mb-1">Interview Timestamp : {{card.interview_timestamp}}</p>
+          <p class="mb-1">Interviewer name : {{card.interviewer_name}}</p>
+          <p class="mb-1" *ngIf="card.latest_interviewer_feedback">Interviewer Feedback : {{card.latest_interviewer_feedback}}</p>
+    
+          <div class="align" *ngIf="(card.latest_interviewer_feedback==='Pass'|| card.latest_interviewer_feedback==='Fail')">
+            <button class="btn btn-outline-success" (click)="decideProfile('Y',card.interviewee_id)">Accept</button>
+            <button class="btn btn-outline-danger" (click)="decideProfile('N',card.interviewee_id)">Reject</button>
+          
+              
+          </div>
+          <div class="inline">
+            <button type="button" class="btn btn-info" (click)="routeScheduler(card)" *ngIf="(card.latest_interviewer_feedback==='Interview Rejected')||(card.latest_interviewer_feedback==='Pass')||(card.latest_interviewer_feedback==='Fail')">Schedule Interview</button>
+          <button type="button" class="btn btn-secondary" (click)="viewFeedback(card.email)" *ngIf="(card.latest_interviewer_feedback==='Pass')||(card.latest_interviewer_feedback==='Fail')">Feedback Details</button>
+
+          </div>
+          
+        </a>
+      </div>
+
+</div>
+

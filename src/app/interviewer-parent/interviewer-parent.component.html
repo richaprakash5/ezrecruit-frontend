@@ -1,0 +1,171 @@
+<nav class="navbar fixed-top bg-body-tertiary" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <a class="navbar-brand" >
+      <svg style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg>
+    </a>
+  </div>
+</nav>
+
+
+<!-- <div class="right">
+  <svg style="cursor: pointer;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+    </svg>
+  
+
+</div> -->
+
+
+
+<div class="message" *ngIf="errorvalue===500">
+  <h3>No Interviews Scheduled.</h3>
+
+</div>
+<div class="align" *ngIf="!errorvalue">
+    <div class="card border-dark mb-3 w-50"   *ngFor="let card of interviewDetails;index as i">
+        <div class="card-body" >
+          <h5 class="card-header">{{card.intervieweeName}}</h5>
+          <br>
+          <p class="card-text">Email id : {{card.email}}</p>
+          <p class="card-text">Round : {{card.interviewRound}}</p>
+          <p class="card-text">Interview Timestamp : {{card.interviewTimestamp}}</p>
+          <div class="correctbtn" *ngIf="!card.interviewerAcceptStatus">
+            <button class="btn btn-outline-success" (click)="acceptInterview('Interview Accepted',card.interviewId)">Accept Interview</button>
+            <button class="btn btn-outline-danger" (click)="acceptInterview('Interview Rejected',card.interviewId)">Deny Interview</button>
+          </div>
+
+          <div *ngIf="card.interviewerAcceptStatus==='Interview Accepted'">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"  [attr.data-bs-target]="'#' + getId(i)" aria-expanded="false">
+              Give Feedback
+            </button>
+
+            <div class="collapse" [attr.id]="getId(i)">
+             
+            <div class="dropdownCorrection">
+              <h6>Coding skills :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="coding_skills">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+            <div class="dropdownCorrection">
+              <h6>Necessary skills required for the role, based on the year of experience :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="skills_based_on_yoe">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+            <div class="dropdownCorrection">
+              <h6>Decision making ability :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="decision_making">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+            <div class="dropdownCorrection">
+              <h6>Client handling skills :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="client_handling">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+            <div class="dropdownCorrection">
+              <h6>Team management :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="team_management">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+            <div class="dropdownCorrection">
+              <h6>Ability to articulate :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="articulate_ability">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+            <div class="dropdownCorrection">
+              <h6>Solution oriented approach :</h6>
+              <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="solution_approach">
+                <option  disabled selected></option>
+                <option  value="Acceptable">Acceptable</option>
+                <option  value="Good">Good</option>
+                <option  value="Not Acceptable">Not Acceptable</option>
+              </select>   
+            </div>
+
+
+            <div class="dropdownCorrection">
+              <div class="input-group">
+                <span class="input-group-text">Remarks</span>
+                <textarea class="form-control" aria-label="With textarea" [(ngModel)]="remarks"></textarea>
+              </div>
+
+            </div>
+
+
+          
+          <div class="lastCorrection">   
+            <select class="form-select w-50" aria-label="Default select example" [(ngModel)]="feedback">
+              <option  disabled selected>Overall Interview Feedback</option>
+              <option  value="Pass">Pass</option>
+              <option  value="Fail">Fail</option>l
+            </select>     
+          </div>
+
+            <div class="correctSpacing">
+              <button class="btn btn-primary" (click)="shareFeedback(card.interviewId)">Submit</button>
+            </div>
+            </div>
+          </div>
+
+
+
+
+
+ 
+
+      </div>
+
+      </div>
+</div>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{username}}</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      <div class="alignprofile">
+        <p>role : {{role}}</p>
+        <p>email    : {{emailId}}</p>
+        <p>Last Login : {{last_login}}</p>
+      </div>
+    </div>
+    <button style="float: right;" type="button" class="btn btn-primary" (click)="onLogOut()">LogOut</button>
+  </div>
+</div>
+

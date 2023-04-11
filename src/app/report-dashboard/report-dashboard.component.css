@@ -1,0 +1,15 @@
+.right{
+    float: right;
+  }
+
+.middle{
+  color: darkslategray;
+  text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.empty{
+  color: darkslategray;
+  text-align: center;
+  margin-top: 10%;
+}

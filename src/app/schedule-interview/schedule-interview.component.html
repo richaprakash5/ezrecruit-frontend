@@ -1,0 +1,43 @@
+<div class="right">
+    <button type="button" class="btn btn-primary" [routerLink]="'/hr'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Back</button>
+  
+  </div>
+  
+  <div class="addIntervieweeDiv">
+      
+        <h4>Candidate : {{candidate_name}} ({{position_title}})</h4>
+        
+        <div class="addLineSpacing">
+          <select class="form-select" aria-label="Default select example" [(ngModel)]="interviewer_name">
+            <option disabled selected>Interviewer Name</option>
+            <option *ngFor="let interviewer of interviewers;" value="{{interviewer}}">{{interviewer}}</option>
+          </select>
+        </div>
+  
+        <div class="dropdownCorrection">
+  
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="interview_round">
+              <option  disabled selected>Interview Round</option>
+              <option  value="L1">L1</option>
+              <option  value="L2">L2</option>
+              <option  value="L3">L3</option>
+            </select>
+  
+        </div>
+        
+      
+        <div class="correctSpacing">
+          <input type="date" [(ngModel)]="interview_date">
+          <input type="time" [(ngModel)]="interview_time">
+        </div>
+      
+        <div class="correctSpacing">
+          <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        </div>
+      
+      
+  
+  
+  </div>
+  
+  

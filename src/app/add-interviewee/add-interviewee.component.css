@@ -1,0 +1,30 @@
+.addIntervieweeDiv{
+    border: 5px outset red;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: lightblue;
+    margin: 5% 25% 10% 25%;    
+    text-align: center;
+}
+
+.correctSpacing{
+    margin-top: 1%;
+}
+
+.heading{
+    text-align: center;
+    margin-top: 2%;
+}
+.dropdownCorrection{
+    text-align: left;
+    padding-bottom: 2%;
+}
+.right{
+    float: right;
+  
+  }
+
+.addLineSpacing{
+    
+    padding-bottom: 2%;
+}

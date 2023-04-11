@@ -1,0 +1,35 @@
+<div class="loginDiv">
+  <h1>EZRecruit</h1>
+<div class="correctMarginOne">
+  <input type="text" class="form-control" placeholder="Username" aria-label="Username"  [(ngModel)]="username">
+</div>
+  
+
+<div class="correctMarginTwo">
+  <input type="password" class="form-control" placeholder="Password" aria-label="Password" [(ngModel)]="pwd">
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="hr" [(ngModel)]="role">
+  <label class="form-check-label" for="inlineRadio1">hr</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="interviewer" [(ngModel)]="role">
+  <label class="form-check-label" for="inlineRadio2">interviewer</label>
+</div>
+  
+  
+
+
+
+  <div class="correctSpacing">
+    <button class="btn btn-primary" (click)="getLogin()">Submit</button>
+  </div>
+
+<!--   <div class="correctSpacing">
+    <button class="btn btn-primary" (click)="onReset()">Reset</button>
+  </div> -->
+    
+
+
+</div>
+

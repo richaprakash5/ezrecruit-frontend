@@ -1,0 +1,15 @@
+.right{
+    float: right;
+  }
+
+  .box{
+    border: 5px outset red;
+    padding: 3%;
+    background-color: lightblue;
+    margin: 4% 10% 4% 10%;
+}
+.header{
+  text-align: center;
+  color: darkslategray;
+  justify-content: center;
+}

@@ -1,0 +1,35 @@
+.align{
+    margin: 5%;
+    padding: 3% 0% 3% 3%;  
+    text-align: left;
+}
+.correctbtn{
+    margin-bottom:2%;
+    margin-top: 3%;
+}
+.right{
+    float: right; 
+  }
+
+  .message{
+    margin-top: 10%;
+    color:darkslategray;
+    text-align: center;
+}
+.correctSpacing{
+    float: right;
+}
+
+.dropdownCorrection{
+    margin-top: 3%;
+}
+.lastCorrection{
+    margin-top: 4%;
+}
+
+.alignprofile{
+    justify-content: left;
+}
+.btn{
+    margin-right: 0.5%;
+}

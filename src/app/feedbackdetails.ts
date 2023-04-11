@@ -1,0 +1,23 @@
+export interface Feedbackdetails {
+  interviewId: string,
+  intervieweeId: string,
+  intervieweeName: string,
+  interviewRound: string,
+  interviewerName: string,
+  interviewTimestamp: string,
+  interviewerAcceptStatus: string,
+  codingSkills: string,
+  skillOnYOE: string,
+  decisionMaking: string,
+  clientHandling: string,
+  teamMgmnt: string,
+  articulateAbility: string,
+  solutionApproach: string,
+  remarks: string,
+  interviewerFeedback: string,
+  createdBy: string,
+  createdDate: string,
+  updatedBy: string,
+  updatedDate: string,
+  email: string
+}

@@ -1,0 +1,45 @@
+<div class="right">
+    <button type="button" class="btn btn-primary" [routerLink]="'/hr'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Back</button>
+  
+  </div>
+
+  <div class="middle" *ngIf="dashboardLength!==0">
+    <h3>Master List</h3>
+
+  </div>
+
+  <div  class="empty" *ngIf="dashboardLength===0">
+    <h3>No Reports to display here.</h3>
+  </div>
+<div *ngIf="dashboardLength!==0">
+      <table class="table table-success table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Interviewee Name</th>
+        <th scope="col">Interviewee Email</th>
+        <th scope="col">Position Title</th>
+        <th scope="col">Total Experience</th>
+        <th scope="col">Latest Round</th>
+        <th scope="col">Interviewer Name</th>
+        <th scope="col">Interviewer Feedback</th>
+        <th scope="col">Profile Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of hrDashboard; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.interviewee_name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.position_title}}</td>
+        <td>{{item.total_experience}}</td>
+        <td>{{item.latest_round_completed}}</td>
+        <td>{{item.interviewer_name}}</td>
+        <td>{{item.latest_interviewer_feedback}}</td>
+        <td>{{item.profile_acceptance_status}}</td>
+      </tr>        
+    </tbody>
+  </table>
+</div>
+  
+

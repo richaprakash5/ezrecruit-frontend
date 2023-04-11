@@ -1,0 +1,19 @@
+.loginDiv{
+    border: 5px outset red;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: lightblue;
+    margin: 10% 25% 10% 25%;    
+    text-align: center;
+}
+.correctMarginOne{
+    margin: 5% 30% 2% 30%;
+}
+
+.correctMarginTwo{
+    margin: 2% 30% 5% 30%;
+}
+
+.correctSpacing{
+    margin: 1%
+}

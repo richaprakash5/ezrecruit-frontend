@@ -1,0 +1,60 @@
+<div class="right">
+  <button type="button" class="btn btn-primary" [routerLink]="'/hr'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">Back</button>
+
+</div>
+
+<div class="addIntervieweeDiv">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Candidate Name</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="candidate_name">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Candidate Email id</span>
+        <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="candidate_emailid">
+      </div>
+
+      <div class="addLineSpacing">
+        <select class="form-select" aria-label="Default select example" (ngModelChange)="getInterviewers($event)"  [(ngModel)]="position_title">
+          <option disabled selected>Position Title</option>
+          <option  *ngFor="let item of skills;index as i"  value="{{item}}">{{item}}</option>
+        </select>
+      </div>
+
+    
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Total Experience (years)</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="total_experience">
+      </div>
+      
+      <div class="addLineSpacing">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="interviewer_name">
+          <option disabled selected>Interviewer Name</option>
+          <option *ngFor="let interviewer of interviewers;" value="{{interviewer}}">{{interviewer}}</option>
+        </select>
+      </div>
+
+      <div class="dropdownCorrection">
+
+          <select class="form-select" aria-label="Default select example" [(ngModel)]="interview_round">
+            <option  disabled selected>Interview Round</option>
+            <option  value="L1">L1</option>
+          </select>
+
+      </div>
+      
+    
+      <div class="correctSpacing">
+        <input type="date" [(ngModel)]="interview_date">
+        <input type="time" [(ngModel)]="interview_time">
+      </div>
+    
+      <div class="correctSpacing">
+        <button [ngClass]="isDisabled()===1?'disabled':'active'" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+      </div>
+    
+    
+
+
+</div>
+
